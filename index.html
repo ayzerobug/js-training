@@ -6,8 +6,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript Page</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #0A0E27;
+            color: #F5F5F7;
+            padding: 40px 24px;
+            line-height: 1.5;
+        }
+
+        #my-p {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #8A8FA3;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+
+        #title-kitchen {
+            color: #FF3256;
+        }
+
         .subtitle {
-            color: red;
+            color: #FF6B85;
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+        }
+
+        button {
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            margin: 4px 6px 4px 0;
+            border: none;
+            border-radius: 8px;
+            background-color: #1B2140;
+            color: #F5F5F7;
+            cursor: pointer;
+            transition: background-color 0.15s ease, transform 0.1s ease;
+        }
+
+        button:hover {
+            background-color: #2A3160;
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        #reserveBtn {
+            background-color: #FF3256;
+        }
+
+        #reserveBtn:hover {
+            background-color: #E01F42;
         }
 
         .highlighted {
@@ -16,6 +80,110 @@
             background-color: #0A0E27;
         }
 
+        #count {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-left: 12px;
+        }
+
+        .card {
+            display: inline-block;
+            background-color: #1B2140;
+            border-radius: 10px;
+            padding: 20px 28px;
+            margin: 16px 12px 0 0;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        #about {
+            margin-top: 32px;
+            padding: 20px;
+            border-left: 3px solid #FF3256;
+            background-color: #12172E;
+            border-radius: 0 8px 8px 0;
+        }
+
+        #about h1 {
+            font-size: 1.4rem;
+            margin-bottom: 6px;
+        }
+
+        #about p {
+            color: #B7BBD0;
+        }
+
+        #name-input {
+            font-family: inherit;
+            font-size: 0.95rem;
+            padding: 10px 14px;
+            border: 1px solid #2A3160;
+            border-radius: 8px;
+            background-color: #1B2140;
+            color: #F5F5F7;
+            outline: none;
+            transition: border-color 0.15s ease;
+        }
+
+        #name-input::placeholder {
+            color: #8A8FA3;
+        }
+
+        #name-input:focus {
+            border-color: #FF3256;
+        }
+
+        #reserve-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 24px;
+        }
+
+        #reserve-form input {
+            font-family: inherit;
+            font-size: 0.95rem;
+            padding: 10px 14px;
+            border: 1px solid #2A3160;
+            border-radius: 8px;
+            background-color: #1B2140;
+            color: #F5F5F7;
+            outline: none;
+            transition: border-color 0.15s ease;
+        }
+
+        #reserve-form input::placeholder {
+            color: #8A8FA3;
+        }
+
+        #reserve-form input:focus {
+            border-color: #FF3256;
+        }
+
+        #reserve-form button {
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #FF3256;
+            color: #F5F5F7;
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+        }
+
+        #reserve-form button:hover {
+            background-color: #E01F42;
+        }
+
+        #confirmation {
+            margin-top: 12px;
+            color: #4ADE80;
+            font-weight: 600;
+        }
     </style>
 </head>
 
@@ -26,20 +194,48 @@
     <p class="subtitle">Best food in span</p>
     <button id="reserveBtn">Reserve a Table</button>
 
+    <br><br>
+
     <button onclick="addHighlight()">Add Highlight</button>
     <button onclick="removeHighlight()">Remove Highlight</button>
     <button onclick="toggleHighlight()">Toggle Highlight</button>
 
     <button onclick="toggleKitchenHighlight()">Toggle Kitchen Highlight</button>
 
-    <div class="card">Card 1</div>
-    <div class="card">Card 2</div>
-    <div class="card">Card 3</div>
-    <div class="card">Card 4</div>
+    <button id="latest-btn">Latest Button</button>
+
+    <br>
+
+    <div>
+        <button id="add-btn">Add</button>
+        <span id="count">0</span>
+        <button id="sub-btn">Subtract</button>
+
+    </div>
+
+    <div>
+        <div class="card">Card 1</div>
+        <div class="card">Card 2</div>
+        <div class="card">Card 3</div>
+        <div class="card">Card 4</div>
+    </div>
+
     <div id="about">
         <h1>So ramdom title</h1>
         <p>Some random text</p>
     </div>
+
+    <div>
+        <input id="name-input" placeholder="Enter your name" />
+        <p id="greeting"></p>
+    </div>
+
+    <form id="reserve-form">
+        <input id="guest-name" placeholder="Your name">
+        <input id="table-num" placeholder="Table number">
+        <button type="submit">Reserve</button>
+    </form>
+    <p id="confirmation"></p>
 
     <!-- <script>
             // alert("Hello World");
@@ -55,7 +251,8 @@
     <!-- <script src="array.js"></script> -->
     <!-- <script src="objects.js"></script> -->
     <!-- <script src="practive-object.js"></script> -->
-    <script src="dom.js"></script>
+    <!-- <script src="dom.js"></script> -->
+    <script src="dom-events.js"></script>
 </body>
 
 </html>
