@@ -6,6 +6,10 @@
 //   return "Hello World New";
 // };
 
+const greetSomeone = (name) => {
+  console.log(`Hello World to ${name}`);
+}
+
 const greet = (name) => `Welcome back ${name}`;
 
 // alert(greet("Ayomide"));

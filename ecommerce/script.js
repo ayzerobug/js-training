@@ -50,7 +50,7 @@ const products = [
   },
 ];
 
-const cart = [];
+let cart = [];
 
 const productGrid = document.querySelector("#products-grid");
 
@@ -92,9 +92,70 @@ const addToCart = (productId) => {
 };
 
 const cartCountEl = document.querySelector("#cart-count");
+const cartItemsEl = document.querySelector("#cart-items");
+const cartEmptyEl = document.querySelector("#cart-empty");
+const cartItemsCount = document.querySelector("#cart-items-count");
+const cartTotalEl = document.querySelector("#cart-total");
+const checkoutBtn = document.querySelector("#checkout-btn");
 
 const renderCart = () => {
+  cartItemsEl.innerHTML = "";
+
+  if (cart.length === 0) {
+    cartItemsEl.appendChild(cartEmptyEl);
+    cartCountEl.textContent = "0";
+    cartItemsCount.textContent = "0 items";
+    cartTotalEl.textContent = "0";
+    return;
+  }
+
+  let total = 0;
+  let itemCount = 0;
+
+  for (const item of cart) {
+    total += item.price * item.quantity;
+    itemCount++;
+
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart-item");
+    cartItem.innerHTML = `
+      <span class="cart-item-emoji">${item.emoji}</span>
+      <div class="cart-item-info">
+          <p class="cart-item-name">${item.quantity} ${item.name}</p>
+          <p class="cart-item-price">₦32,000</p>
+      </div>
+      <button class="cart-item-remove" data-id="${item.id}">
+          <i class="hgi-stroke hgi-delete-02"></i>
+      </button>`;
+
+    cartItemsEl.appendChild(cartItem);
+  }
+
+  cartItemsCount.textContent = `${itemCount.toLocaleString()} items`;
+  cartTotalEl.textContent = total.toLocaleString();
   cartCountEl.textContent = cart.length;
+  checkoutBtn.disabled = false;
+
+  const removeBtns = document.querySelectorAll(".cart-item-remove");
+  for (const btn of removeBtns) {
+    btn.addEventListener("click", function () {
+      removeFromCart(this.dataset.id);
+    });
+  }
 };
+
+const removeFromCart = (productId) => {
+  const index = cart.findIndex((item) => item.id === parseInt(productId));
+  if (index !== -1) {
+    // Means Item is found
+    cart.splice(index, 1);
+  }
+  renderCart();
+};
+
+document.querySelector("#clear-btn").addEventListener("click", () => {
+  cart = [];
+  renderCart();
+})
 
 renderProducts();
