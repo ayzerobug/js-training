@@ -53,3 +53,16 @@ console.log(titleKitchen);
 function toggleKitchenHighlight() {
   titleKitchen.classList.toggle("highlighted");
 }
+
+
+document.querySelector(".remove-subtitle-btn").addEventListener("click", function (){
+  const subtitle = document.querySelector(".subtitle");
+  subtitle.remove();
+})
+
+document.querySelector("#rem-item-1-btn").addEventListener("click", function (){
+  const list = document.querySelector("#list");
+  const item = document.querySelector("#item-1");
+
+  list.removeChild(item);
+})
