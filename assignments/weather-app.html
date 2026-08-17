@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment - Weather App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #FF3256; --text-dark: #0A0E27; --text-light: #64748B; }
+        body { font-family: 'Poppins', sans-serif; background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 50%, #F0F4F8 100%); color: var(--text-dark); line-height: 1.7; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+        .header { padding: 5rem 2rem 3rem; text-align: center; }
+        .badge { display: inline-block; background: linear-gradient(135deg, #FF3256, #FF6B7A); color: white; padding: 0.6rem 1.4rem; border-radius: 50px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .header h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.1; letter-spacing: -2px; background: linear-gradient(120deg, #0A0E27, #FF3256); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .header p { font-size: 1.1rem; color: var(--text-light); max-width: 600px; margin: 0 auto; font-weight: 300; }
+        .meta { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; flex-wrap: wrap; }
+        .meta-item { background: rgba(255,50,86,0.08); border: 1.5px solid rgba(255,50,86,0.2); border-radius: 8px; padding: 0.5rem 1.2rem; font-size: 0.85rem; color: var(--text-dark); font-weight: 500; }
+        section { padding: 3rem 2rem; }
+        .content-card { background: #FFFFFF; border: 2px solid #E8F0FF; padding: 2.5rem; border-radius: 16px; margin-bottom: 2rem; }
+        .content-card h2 { font-size: 1.3rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.8rem; }
+        .content-card h2 .num { background: linear-gradient(135deg, #FF3256, #FF6B7A); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 800; flex-shrink: 0; }
+        .content-card p { color: var(--text-light); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; }
+        .task-list { list-style: none; margin: 1rem 0; }
+        .task-list li { font-size: 0.95rem; color: var(--text-dark); margin-bottom: 0.8rem; padding-left: 2rem; position: relative; line-height: 1.6; }
+        .task-list li::before { content: '\2610'; position: absolute; left: 0; color: #FF3256; font-size: 1.1rem; }
+        .code-box { background: linear-gradient(135deg, #0F172A 0%, #1a1f3a 100%); color: #E0E0E0; padding: 1.5rem; border-radius: 10px; font-family: 'Courier New', monospace; font-size: 0.88rem; line-height: 1.8; overflow-x: auto; margin: 1.5rem 0; border: 1px solid rgba(255,50,86,0.2); white-space: pre; }
+        .code-box code { display: block; }
+        .str { color: #C3E88D; }
+        .comment { color: #546E7A; font-style: italic; }
+        .output { color: #89DDFF; }
+        .tip-box { background: linear-gradient(135deg, rgba(255,50,86,0.08), rgba(255,50,86,0.03)); border: 2px solid rgba(255,50,86,0.25); border-radius: 12px; padding: 1.2rem 1.5rem; margin-top: 1.5rem; color: var(--text-dark); font-size: 0.9rem; }
+        .rules { background: linear-gradient(135deg, rgba(10,14,39,0.04), rgba(10,14,39,0.02)); border: 2px solid rgba(10,14,39,0.12); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem; }
+        .rules h3 { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem; }
+        .rules ul { list-style: none; }
+        .rules ul li { font-size: 0.9rem; color: var(--text-light); padding-left: 1.5rem; position: relative; margin-bottom: 0.5rem; }
+        .rules ul li::before { content: '\2022'; position: absolute; left: 0; color: var(--primary); font-weight: 700; }
+        .bonus { background: linear-gradient(135deg, rgba(0,217,255,0.08), rgba(0,217,255,0.03)); border: 2px solid rgba(0,217,255,0.3); border-radius: 12px; padding: 1.5rem; margin-top: 1rem; }
+        .bonus h3 { font-size: 1rem; font-weight: 700; color: #0099BB; margin-bottom: 0.8rem; }
+        .bonus ul { list-style: none; }
+        .bonus ul li { font-size: 0.9rem; color: var(--text-light); padding-left: 1.5rem; position: relative; margin-bottom: 0.5rem; }
+        .bonus ul li::before { content: '\2605'; position: absolute; left: 0; color: #00D9FF; }
+        .footer { background: linear-gradient(135deg, #0A0E27 0%, #1a1f3a 100%); color: white; padding: 3rem 2rem; text-align: center; margin-top: 2rem; }
+        .footer p { font-size: 1rem; opacity: 0.9; margin-bottom: 1rem; }
+        @media (max-width: 600px) { .header h1 { font-size: 2rem; } .meta { flex-direction: column; align-items: center; } }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="container">
+        <div class="badge">&#x1F7E5; Assignment 5 &mdash; Session 27</div>
+        <h1>Weather App</h1>
+        <p>Build a working weather app that fetches live data from a public API and displays it on the page.</p>
+        <div class="meta">
+            <div class="meta-item">&#x1F4C5; Session 27</div>
+            <div class="meta-item">&#x1F4C1; index.html + script.js</div>
+            <div class="meta-item">&#x23F1;&#xFE0F; Solo task</div>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div class="container">
+
+        <!-- API INFO -->
+        <div class="content-card">
+            <h2><span class="num">&#x1F310;</span> The API</h2>
+            <p>You will use <strong>Open-Meteo</strong> &mdash; a free, public weather API that requires no sign-up and no API key.</p>
+            <p style="margin-top:1rem; font-weight:600; color:#0A0E27">Endpoint (Lagos):</p>
+            <div class="code-box"><code><span class="str">https://api.open-meteo.com/v1/forecast?latitude=6.5244&longitude=3.3792&current_weather=true</span></code></div>
+            <p style="margin-top:1rem; font-weight:600; color:#0A0E27">Sample response:</p>
+            <div class="code-box"><code>{
+  <span class="str">"current_weather"</span>: {
+    <span class="str">"temperature"</span>: <span class="output">31.2</span>,        <span class="comment">// degrees Celsius</span>
+    <span class="str">"windspeed"</span>: <span class="output">14.5</span>,           <span class="comment">// km/h</span>
+    <span class="str">"weathercode"</span>: <span class="output">3</span>,            <span class="comment">// condition code (see tip below)</span>
+    <span class="str">"time"</span>: <span class="str">"2026-08-12T10:00"</span>   <span class="comment">// current time</span>
+  }
+}</code></div>
+            <div class="tip-box">
+                &#x1F4A1; <strong>Weather codes:</strong> 0 = Clear sky, 1&ndash;3 = Partly cloudy, 45&ndash;48 = Foggy, 51&ndash;67 = Rainy, 71&ndash;77 = Snowy, 80&ndash;82 = Showers, 95+ = Thunderstorm. Use these to show a relevant emoji or label on the page.
+            </div>
+        </div>
+
+        <!-- TASK 1 -->
+        <div class="content-card">
+            <h2><span class="num">1</span> Fetch &amp; Display the Weather</h2>
+            <p>Write an <strong>async function</strong> that fetches weather data from the API and displays the following on the page:</p>
+            <ul class="task-list">
+                <li>City name &mdash; hardcode <em>"Lagos"</em> for now</li>
+                <li>Current temperature in &deg;C</li>
+                <li>Wind speed in km/h</li>
+                <li>A weather condition label based on the <strong>weathercode</strong> (e.g. "Clear sky", "Rainy", "Cloudy")</li>
+            </ul>
+            <div class="tip-box">&#x1F4A1; Access the data with <span style="font-family:monospace">data.current_weather.temperature</span>, <span style="font-family:monospace">data.current_weather.windspeed</span>, and <span style="font-family:monospace">data.current_weather.weathercode</span>.</div>
+        </div>
+
+        <!-- TASK 2 -->
+        <div class="content-card">
+            <h2><span class="num">2</span> Add a Loading &amp; Error State</h2>
+            <p>The user should always know what&apos;s happening:</p>
+            <ul class="task-list">
+                <li>Show a <strong>loading message</strong> while the fetch is in progress</li>
+                <li>Show the weather data when the fetch succeeds</li>
+                <li>Show a <strong>friendly error message</strong> if the fetch fails</li>
+            </ul>
+        </div>
+
+        <!-- TASK 3 -->
+        <div class="content-card">
+            <h2><span class="num">3</span> Add a Refresh Button</h2>
+            <p>Add a <strong>"Refresh Weather"</strong> button on the page:</p>
+            <ul class="task-list">
+                <li>Clicking the button calls your fetch function again and updates the displayed data</li>
+                <li>The button should be <strong>disabled</strong> while fetching and re-enabled when done</li>
+                <li>Use <strong>finally</strong> to re-enable the button whether the fetch succeeds or fails</li>
+            </ul>
+        </div>
+
+        <!-- TASK 4 -->
+        <div class="content-card">
+            <h2><span class="num">4</span> Save Last Fetched Data to localStorage</h2>
+            <p>Use what you learned this session to persist the weather data:</p>
+            <ul class="task-list">
+                <li>Every time you successfully fetch new weather data, save it to <strong>localStorage</strong></li>
+                <li>When the page loads, check if there is saved weather data in localStorage and display it <strong>before</strong> the first fetch completes</li>
+                <li>This way the user sees something immediately instead of a blank page</li>
+            </ul>
+            <div class="tip-box">&#x1F4A1; Save with <span style="font-family:monospace">JSON.stringify()</span> and retrieve with <span style="font-family:monospace">JSON.parse() || null</span>. If saved data exists, render it first, then fetch fresh data in the background.</div>
+        </div>
+
+        <!-- BONUS -->
+        <div class="content-card">
+            <h2><span class="num">&#x2605;</span> Bonus Challenges</h2>
+            <p>Finished early? Try one or more of these:</p>
+            <div class="bonus">
+                <h3>&#x2605; Bonus Tasks</h3>
+                <ul>
+                    <li>Show a weather emoji based on the weathercode (e.g. &#x2600;&#xFE0F; for clear, &#x1F327;&#xFE0F; for rain, &#x26C8;&#xFE0F; for thunderstorm)</li>
+                    <li>Show the time the data was last fetched in a readable format</li>
+                    <li>Add a second city &mdash; fetch weather for Abuja as well and display both side by side</li>
+                    <li>Change the page background colour based on the weather condition &mdash; blue for rain, yellow for sunny, grey for cloudy</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- RULES -->
+        <div class="rules">
+            <h3>Rules</h3>
+            <ul>
+                <li>Use <strong>async/await</strong> for your fetch function &mdash; not .then()/.catch()</li>
+                <li>Use <strong>try/catch/finally</strong> to handle loading, success, and error states</li>
+                <li>Do not use any external libraries &mdash; vanilla JS only</li>
+                <li>Test in the browser before submitting &mdash; the page must load with no console errors</li>
+                <li>Submit both your <strong>index.html</strong> and <strong>script.js</strong> files</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<div class="footer">
+    <div class="container">
+        <p>Good luck! &#x1F324;&#xFE0F; Use the console to inspect the API response first before building the UI.</p>
+        <img src="https://cider.yangaplug.com/assets/logo-vLKwI0XA.png" alt="Yangaplug" style="height:36px; width:auto; object-fit:contain; margin-top:1rem">
+    </div>
+</div>
+
+</body>
+</html>
