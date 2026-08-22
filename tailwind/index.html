@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-primary: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="text-2xl font-bold underline text-primary">Hello World</p>
+
+    <p class="text-xs">Extra small (12px)</p>
+    <p class="text-sm">Small (14px)</p>
+    <p class="text-base">Base (16px) — default</p>
+    <p class="text-lg">Large (18px)</p>
+    <p class="text-xl">XL (20px)</p>
+    <p class="text-2xl">2XL (24px)</p>
+    <p class="text-4xl">4XL (36px)</p>
+    <p class="text-6xl">6XL (60px)</p>
+
+    <p class="font-light">Light (300)</p>
+    <p class="font-normal">Normal (400)</p>
+    <p class="font-medium">Medium (500)</p>
+    <p class="font-semibold">Semibold (600)</p>
+    <p class="font-bold">Bold (700)</p>
+    <p class="font-extrabold">Extrabold (800)</p>
+
+    <div class="border border-primary py-6 px-4">
+        <p class="text-left">Left aligned</p>
+        <p class="text-center">Centered</p>
+        <p class="text-right">Right aligned</p>
+        <p class="uppercase">ALL CAPS</p>
+        <p class="capitalize">First Letter Cap</p>
+        <p class="underline">Underlined</p>
+        <p class="line-through">Strikethrough</p>
+        <p class="tracking-wide">Wide letter spacing</p>
+        <p class="leading-loose">Loose line height</p>
+    </div>
+
+    <div class="border border-green-600 my-10 w-xl mx-auto p-10 text-center rounded-xl">
+        Hello
+        <!-- <p class="text-slate-900">Dark slate</p>
+        <p class="text-blue-600">Blue</p>
+        <p class="text-red-400">Light red</p>
+        <p class="text-green-600">Dark green</p>
+        <p class="text-yellow-400">Yellow</p>
+        <p class="text-white">White</p> -->
+    </div>
+
+    <div>
+        <div class="bg-blue-500">Blue background</div>
+        <div class="bg-red-100">Very light red</div>
+        <div class="bg-slate-900">Very dark background</div>
+        <div class="bg-white">White</div>
+    </div>
+
+    <div class="bg-white shadow-lg p-8 rounded-2xl max-w-sm mx-auto mt-20 mb-10">
+        <div class="w-16 h-16 bg-blue-500 rounded-full mb-4"></div>
+        <h1 class="text-xl font-bold text-slate-900">Ayomide Oludare</h1>
+        <p class="text-slate-500 text-sm mt-1">Full-Stack Developer</p>
+        <p class="text-slate-700 mt-4 leading-relaxed">Building products for everyday Nigerians</p>
+        <button class="mt-6 bg-blue-500 text-white px-6 py-2 rounded-lg font-semibold">Follow</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.form-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 3rem;
+  width: 100%;
+  max-width: 480px;
+  backdrop-filter: blur(10px);
+}
+
+.form-card h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+}
+
+.form-card h1 span {
+  color: #ff3256;
+}
+
+.form-card .subtitle {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 2rem;
+}
+
+.field {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  color: white;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+input:focus {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+input.invalid {
+  border-color: #ff3256;
+}
+
+input.valid {
+  border-color: #22c55e;
+}
+
+.error-msg {
+  font-size: 0.8rem;
+  color: #ff6b7a;
+  margin-top: 0.4rem;
+  min-height: 1.2rem;
+  font-weight: 500;
+}
+
+.submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #ff3256, #ff6b7a);
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 50, 86, 0.35);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+
+.button
+.form-input
