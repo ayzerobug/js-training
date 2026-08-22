@@ -8,8 +8,12 @@
     <title>Document</title>
     <style type="text/tailwindcss">
         @theme {
-            --color-primary: #ff0000;
+            --color-primary: #c8410b;
+            --color-muted: #9c8674;
+            --color-header-bg: rgba(13, 10, 8, 0.9);
+            --font-heading: "Playfair Display", serif;
         }
+
     </style>
 </head>
 
@@ -67,6 +71,108 @@
         <p class="text-slate-500 text-sm mt-1">Full-Stack Developer</p>
         <p class="text-slate-700 mt-4 leading-relaxed">Building products for everyday Nigerians</p>
         <button class="mt-6 bg-blue-500 text-white px-6 py-2 rounded-lg font-semibold">Follow</button>
+    </div>
+
+    <div class="max-w-7xl mx-auto mb-20">
+        <div class="w-16 h-16 border mb-10">64px × 64px</div>
+        <div class="w-32 h-8 border mb-10">128px wide, 32px tall</div>
+        <div class="w-64 h-64 border mb-10">256px square</div>
+    </div>
+
+    <div class="max-w-5xl mx-auto h-20 mb-20 bg-blue-500">
+        <div class="bg-red-500 h-10 w-1/4"></div>
+        <!-- <img class="w-full"
+            src="https://media.istockphoto.com/id/1341461848/photo/gorgeous-female-relaxing-on-pillow-ready-to-sleep-in-darkened-room.jpg?s=1024x1024&w=is&k=20&c=RqnKivJL-n9jdSzLHalkI88020U7yKg1zgGztxQgHXk=" /> -->
+    </div>
+
+    <div class="bg-green-500 w-20 h-20 mb-20">
+
+    </div>
+
+
+    <div class="max-w-sm mx-auto text-center py-4 border-b border-white bg-green-500">384px max</div>
+    <div class="max-w-md mx-auto text-center py-4 border-b border-white bg-green-500">448px max</div>
+    <div class="max-w-lg mx-auto text-center py-4 border-b border-white bg-green-500">512px max</div>
+    <div class="max-w-xl mx-auto text-center py-4 border-b border-white bg-green-500">576px max</div>
+    <div class="max-w-4xl mx-auto text-center py-4 border-b border-white bg-green-500">896px max</div>
+    <div class="max-w-7xl mx-auto text-center py-4 border-b border-white bg-green-500">1280px max</div>
+
+
+    <div class="py-4 border border-blue-500 my-20 max-w-7xl mx-auto px-8">Centered container with breathing room</div>
+
+    <header class="flex bg-header-bg items-center justify-between max-w-7xl mx-auto border px-8 py-4 mb-10">
+        <a href="/" class="font-bold font-heading text-xl text-white no-decoration">Asa <span
+                class="text-primary">Kitchen</span></a>
+        <nav>
+            <ul class="list-style-none  flex gap-10">
+                <li><a href="#about" class="text-muted no-decoration font-sm font-semibold">Our Story</a></li>
+                <li><a href="#menu" class="text-muted no-decoration font-sm font-semibold">Menu</a></li>
+                <li><a href="#experience" class="text-muted no-decoration font-sm font-semibold">Experience</a></li>
+                <li><a href="#reservation" class="text-muted no-decoration font-sm font-semibold">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="#"
+            class="flex items-center justify-center gap-2 text-white py-3 px-6 rounded-sm no-decoration text-sm border-none font-semibold bg-primary">Reserve
+            a Table</a>
+        <!-- <i class="hgi hgi-stroke hgi-rounded hgi-menu-01 nav-menu-icon"></i> -->
+
+    </header>
+
+    <div class="flex gap-4 mb-4 border mb-20">
+        <div class="w-64 border border-green">Fixed sidebar</div>
+        <div class="flex-1 border border-green">Takes all remaining space</div>
+    </div>
+
+    <div class="grid grid-cols-4 gap-x-4 gap-y-2 mb-20 px-6">
+        <div class="bg-blue-500 text-center py-4 rounded-md col-span-3">Card 1</div>
+        <div class="bg-blue-500 text-center py-4 rounded-md">Card 2</div>
+        <div class="bg-blue-500 text-center py-4 rounded-md">Card 3</div>
+        <div class="bg-blue-500 text-center py-4 col-span-2 rounded-md">Card 4</div>
+        <div class="bg-blue-500 text-center py-4 rounded-md">Card 5</div>
+        <div class="bg-blue-500 text-center py-4 rounded-md">Card 6</div>
+        <div class="bg-blue-500 text-center py-4 rounded-md">Card 7</div>
+        <div class="bg-blue-500 text-center py-4 rounded-md">Card 8</div>
+        <div class="bg-blue-500 text-center py-4 rounded-md">Card 9</div>
+        <div class="bg-blue-500 text-center py-4 col-span-full rounded-md flex gap-4">
+            <div class="border border-white w-32">Fixed Sidebar</div>
+            <div class="border border-white flex-1">Main Content</div>
+        </div>
+    </div>
+
+    <!-- Page wrapper -->
+    <div class="max-w-7xl mx-auto px-6 py-10">
+
+        <!-- Navbar: flex -->
+        <nav class="flex justify-between items-center mb-12">
+            <h1 class="text-2xl font-extrabold text-slate-900">Yangaplug</h1>
+
+            <div class="flex items-center gap-6">
+                <a class="text-slate-600">Home</a>
+                <a class="text-slate-600">About</a>
+                <button class="bg-blue-500 text-white px-5 py-2 rounded-lg font-semibold">
+                    Sign up
+                </button>
+            </div>
+        </nav>
+
+        <!-- Card list: grid -->
+        <div class="grid grid-cols-3 gap-6">
+
+            <!-- Each card: flex column so the button sits at the bottom -->
+            <div class="flex flex-col bg-white p-6 rounded-xl shadow">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg mb-4"></div>
+                <h3 class="text-lg font-bold text-slate-900">Fast Delivery</h3>
+                <p class="text-slate-500 text-sm mt-2 flex-1">
+                    We get your order to you the same day.
+                </p>
+                <button class="mt-4 text-blue-500 font-semibold text-sm text-left">
+                    Learn more
+                </button>
+            </div>
+
+            <!-- Copy this card 2 more times -->
+
+        </div>
     </div>
 </body>
 
